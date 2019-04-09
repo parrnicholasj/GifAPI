@@ -18,7 +18,7 @@ $("#search").on("click", function(event) {
       var result = response.data;
       console.log(result.length);
 
-      for (var i = 0; i < result.length; i++){
+      for (var i = 0; i < result.length; i++){// set them up for pausing by starting still but saving both to swap as desired
 
         var $gif = $("<img>");
         var stillUrl = result[i].images.fixed_height_still.url;
