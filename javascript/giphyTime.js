@@ -25,7 +25,8 @@ function createBtns() {
 
     var newBtn = $("<button>");
     newBtn.text(btns[i]);
-    newBtn.attr("class", "gifBtn");
+    newBtn.attr("class", "gifBtn btn btn-dark m-1");
+
     $("#btnLand").prepend(newBtn);
 
   }
@@ -59,15 +60,20 @@ $("#btnLand").on("click", ".gifBtn", function (event) {
         var stillUrl = result[i].images.fixed_height_still.url;
         var gifUrl = result[i].images.fixed_height.url;
         var rating = result[i].rating;
+        var $div = $("<div>");
 
+        $div.attr("class", "card col-3 m-1");
+        
         $gif.attr("src", stillUrl);
         $gif.attr("stillSrc", stillUrl);
         $gif.attr("gifSrc", gifUrl);
         $gif.attr("id", "gif");
         $gif.attr("class", "stillGif");
+        
 
-        $("#gifLand").prepend($gif);
-        $("#gifLand").prepend(`<span>${rating}</span>`);
+        $div.append(`<h4>Rated: ${rating}</h4>`);
+        $div.append($gif);
+        $("#gifLand").prepend($div);
 
       }
 
